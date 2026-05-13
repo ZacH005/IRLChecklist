@@ -23,6 +23,8 @@ BASE_PATH=/ npm run build
 
 ## GitHub Pages
 
-The repository includes `.github/workflows/deploy-pages.yml`. On every push to `main`, GitHub Actions installs dependencies from `irl-checklist/`, builds the app, uploads `irl-checklist/dist`, and deploys it to GitHub Pages.
+The repository uses the root workflow at `.github/workflows/deploy-pages.yml`. On every push to `main`, GitHub Actions installs dependencies from `irl-checklist/`, builds the app, uploads `irl-checklist/dist`, and deploys it to GitHub Pages.
+
+Only this workflow should be enabled for Pages deployment. Extra stock workflows that publish the repository root or a Jekyll site will break the app and can cause GitHub Pages 404s.
 
 In the GitHub repository settings, set **Pages > Build and deployment > Source** to **GitHub Actions**.
