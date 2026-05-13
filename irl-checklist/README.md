@@ -1,16 +1,28 @@
-# React + Vite
+# IRL Checklist
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React/Vite app for an Innovation Readiness Level self-assessment.
 
-Currently, two official plugins are available:
+## Local Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```sh
+npm install
+npm run dev
+```
 
-## React Compiler
+## Build
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```sh
+npm run build
+```
 
-## Expanding the ESLint configuration
+Production builds use `/IRLChecklist/` as the base path by default so the app works on this repository's GitHub Pages project URL. Override it for another Pages path or a custom domain with:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```sh
+BASE_PATH=/ npm run build
+```
+
+## GitHub Pages
+
+The repository includes `.github/workflows/deploy-pages.yml`. On every push to `main`, GitHub Actions installs dependencies from `irl-checklist/`, builds the app, uploads `irl-checklist/dist`, and deploys it to GitHub Pages.
+
+In the GitHub repository settings, set **Pages > Build and deployment > Source** to **GitHub Actions**.
