@@ -1,0 +1,351 @@
+@import "tailwindcss";
+
+:root {
+  color: #0f172a;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(99, 102, 241, 0.14), transparent 30%),
+    radial-gradient(circle at bottom center, rgba(16, 185, 129, 0.08), transparent 34%),
+    linear-gradient(180deg, #f7fbff 0%, #edf4ff 46%, #f8fafc 100%);
+  font-family: "Manrope", "Avenir Next", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(99, 102, 241, 0.14), transparent 30%),
+    radial-gradient(circle at bottom center, rgba(16, 185, 129, 0.08), transparent 34%),
+    linear-gradient(180deg, #f7fbff 0%, #edf4ff 46%, #f8fafc 100%);
+  color: #0f172a;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.028) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 80%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+textarea,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.app-shell::before,
+.app-shell::after {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 999px;
+  filter: blur(56px);
+  opacity: 0.35;
+  pointer-events: none;
+  animation: float 16s ease-in-out infinite;
+}
+
+.app-shell::before {
+  top: -8rem;
+  right: -4rem;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.5), rgba(56, 189, 248, 0));
+}
+
+.app-shell::after {
+  bottom: 0;
+  left: -8rem;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.32), rgba(99, 102, 241, 0));
+  animation-delay: -5s;
+}
+
+.hero-card,
+.panel {
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 18px 48px rgba(15, 23, 42, 0.08),
+    0 2px 8px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+}
+
+.hero-card::before,
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+  opacity: 0.55;
+  mix-blend-mode: screen;
+}
+
+.hero-card {
+  animation: fadeUp 560ms ease both;
+}
+
+.panel {
+  backdrop-filter: blur(14px);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.panel:hover {
+  box-shadow:
+    0 24px 58px rgba(15, 23, 42, 0.1),
+    0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+.panel-sticky {
+  position: sticky;
+  top: 1.25rem;
+  align-self: start;
+}
+
+.panel-centered {
+  max-width: 100%;
+}
+
+.stage-panel,
+.results-panel {
+  animation: fadeUp 640ms ease both;
+}
+
+.dimension-chip,
+.dimension-nav,
+.level-card,
+.note-card,
+.gap-card {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.dimension-chip:hover,
+.dimension-nav:hover,
+.level-card:hover,
+.note-card:hover,
+.gap-card:hover {
+  transform: translateY(-2px);
+}
+
+.dimension-chip {
+  min-height: 6.25rem;
+  animation: fadeUp 480ms ease both;
+  will-change: transform;
+}
+
+.dimension-chip:nth-child(1) {
+  animation-delay: 40ms;
+}
+
+.dimension-chip:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.dimension-chip:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.dimension-chip:nth-child(4) {
+  animation-delay: 160ms;
+}
+
+.dimension-chip:nth-child(5) {
+  animation-delay: 200ms;
+}
+
+.dimension-chip:nth-child(6) {
+  animation-delay: 240ms;
+}
+
+.dimension-nav {
+  animation: fadeUp 520ms ease both;
+}
+
+.level-card {
+  animation: fadeUp 560ms ease both;
+  will-change: transform;
+}
+
+.level-card:nth-child(odd) {
+  animation-delay: 20ms;
+}
+
+.note-card,
+.gap-card {
+  animation: fadeUp 560ms ease both;
+}
+
+.hero-card:hover .dimension-chip {
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.04);
+}
+
+.table-shell {
+  overflow: hidden;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+thead th {
+  letter-spacing: 0.12em;
+}
+
+tbody tr {
+  transition: background-color 160ms ease;
+}
+
+tbody tr:hover {
+  background-color: rgba(248, 250, 252, 0.9);
+}
+
+.stepper-row {
+  padding-top: 1.5rem;
+}
+
+svg {
+  display: block;
+}
+
+.radar-panel svg {
+  filter: drop-shadow(0 20px 32px rgba(37, 99, 235, 0.08));
+  animation: fadeScale 700ms ease both;
+}
+
+.radar-panel circle,
+.radar-panel line,
+.radar-panel polygon,
+.radar-panel text {
+  animation: fadeIn 700ms ease both;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(148, 163, 184, 0.12);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(100, 116, 139, 0.42);
+  border: 2px solid rgba(255, 255, 255, 0.55);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, 18px, 0) scale(1.04);
+  }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .panel-sticky {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
